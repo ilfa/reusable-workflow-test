@@ -2,7 +2,9 @@ name: Reusable workflow
 
 on:
   workflow_call:
-
+    secrets:
+      envPAT:
+        required: true
 jobs:
   test_job:
     runs-on: ubuntu-latest
