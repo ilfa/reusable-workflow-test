@@ -6,11 +6,19 @@ on:
       envPAT:
         required: true
 jobs:
-  test_job:
+  test_job_without_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secret without env
+        run: |
+          echo "Secret length: ${#SECRET_ENV_PAT}"
+        env:
+          SECRET_ENV_PAT: ${{ secrets.envPAT }}
+  test_job_with_env:
     runs-on: ubuntu-latest
     environment: test
     steps:
-      - name: Check secret
+      - name: Check secret with env
         run: |
           echo "Secret length: ${#SECRET_ENV_PAT}"
         env:
