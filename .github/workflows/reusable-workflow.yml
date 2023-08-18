@@ -3,7 +3,7 @@ name: Reusable workflow
 on:
   workflow_call:
     secrets:
-      envPAT:
+      envPAT2:
         required: true
 jobs:
   test_job_without_env:
@@ -13,7 +13,7 @@ jobs:
         run: |
           echo "Secret length: ${#SECRET_ENV_PAT}"
         env:
-          SECRET_ENV_PAT: ${{ secrets.envPAT }}
+          SECRET_ENV_PAT: ${{ secrets.envPAT2 }}
   test_job_with_env:
     runs-on: ubuntu-latest
     environment: test
@@ -22,4 +22,4 @@ jobs:
         run: |
           echo "Secret length: ${#SECRET_ENV_PAT}"
         env:
-          SECRET_ENV_PAT: ${{ secrets.envPAT }}
+          SECRET_ENV_PAT: ${{ secrets.envPAT2 }}

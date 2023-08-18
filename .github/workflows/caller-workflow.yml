@@ -10,4 +10,4 @@ jobs:
     name: 'Call reusable workflow'
     uses: ./.github/workflows/reusable-workflow.yml
     secrets:
-      envPAT: ${{ secrets.envPAT }}
+      envPAT2: ${{ secrets.envPAT }}
