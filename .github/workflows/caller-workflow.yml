@@ -8,6 +8,5 @@ on:
 jobs:
   call_reusable_workflow:
     runs-on: ubuntu-latest
-    steps:
-      - name: Call reusable workflow
-        uses: ./.github/workflows/reusable-workflow.yml@main
+    name: Call reusable workflow
+    uses: ./.github/workflows/reusable-workflow.yml@main
