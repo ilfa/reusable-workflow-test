@@ -1,0 +1,15 @@
+name: Reusable workflow
+
+on:
+  workflow_call:
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - name: Check secret
+        run: |
+          echo "Secret length: ${#SECRET_ENV_PAT}"
+        env:
+          SECRET_ENV_PAT: ${{ secrets.envPAT }}
