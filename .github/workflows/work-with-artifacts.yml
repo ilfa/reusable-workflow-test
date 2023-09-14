@@ -23,6 +23,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist-artifact
+          path: ./dist
       - name: check folders
         run: |
           ls -la
