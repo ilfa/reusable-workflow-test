@@ -1,0 +1,30 @@
+name: Work with artifacts
+
+on:
+  push:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make artifact
+        run: |
+          mkdir dist
+          touch ./dist/foo.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-artifact
+          path: ./dist
+  download:
+    needs: upload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-artifact
+          path: ./dist
+      - name: check folders
+        run: |
+          ls -la
