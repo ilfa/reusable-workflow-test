@@ -16,4 +16,4 @@ jobs:
         run: echo 'OK'
       - name: Return calculated value
         run: |
-          echo "value is: ${{inputs.booleanInput == 'true' && 'true-value' || 'false-value'}}"
+          echo "value is: ${{inputs.booleanInput && 'true-value' || 'false-value'}}"
