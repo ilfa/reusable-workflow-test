@@ -17,6 +17,7 @@ jobs:
           name: dist-artifact
           path: ./dist
   download:
+    needs: upload
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
