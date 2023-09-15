@@ -1,0 +1,19 @@
+name: Work with artifacts
+
+on:
+  push:
+
+jobs:
+  call_inputs_workflow_true:
+    name: 'Call inputs workflow true'
+    uses: ./.github/workflows/reusable-workflow-inputs.yml
+    with:
+      booleanInput: true
+  call_inputs_workflow_false:
+    name: 'Call inputs workflow false'
+    uses: ./.github/workflows/reusable-workflow-inputs.yml
+    with:
+      booleanInput: false
+  call_inputs_workflow_default:
+    name: 'Call inputs workflow default'
+    uses: ./.github/workflows/reusable-workflow-inputs.yml

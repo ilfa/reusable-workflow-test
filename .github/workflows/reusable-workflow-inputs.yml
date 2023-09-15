@@ -1,0 +1,19 @@
+name: Reusable workflow inputs
+
+on:
+  workflow_call:
+    inputs:
+      booleanInput:
+        type: boolean
+        required: false
+
+jobs:
+  test_boolean_input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if statement
+        if: ${{ inputs.booleanInput }}
+        run: echo 'OK'
+      - name: Return calculated value
+        run: |
+          echo "value is: ${{inputs.booleanInput == 'true' && 'true-value' || 'false-value'}}"
